@@ -20,26 +20,16 @@ class ApiService {
       'email': email,
       'password': password,
     };
-    
-    var response = await http.post(
+    try{
+      var response = await http.post(
       Uri.parse('http://digital-aligner.ddns.net:3000/login'),
-      // headers: headers,
+      headers: headers,
       body: jsonEncode(body),
     );
-    
-
-    if (response.statusCode == 401) {   //Teste mesmo com erro
-      var jsonResponse = jsonDecode(response.body);
-      if (jsonResponse['success'] == true) {
-        Navigator.pushReplacementNamed(context, 'arquivos');
-        
-      } else {
-        Navigator.pushReplacementNamed(context, 'arquivos');
-        throw Exception('Credenciais inválidas');
-      }
-    } else {
+    } catch(e){
       Navigator.pushReplacementNamed(context, 'arquivos');
-      throw Exception('Erro ao fazer login: ${response.reasonPhrase}');
     }
+
+  
   }
 }

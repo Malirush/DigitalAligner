@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste/screens/arquivos.dart';
 import '/services/loginapi.dart';
-import 'package:http/http.dart' as http;
+
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -78,17 +78,10 @@ class LoginPage extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                       child: ElevatedButton(
                         onPressed: () {
-                                    String email = emailController.text;
-                                      String senha = passwordController.text;
-                           
-                               try{
-                                ApiService.login(email, senha, context);
-                               } catch(e){
-                                Navigator.push(
-                                context,
-                                 MaterialPageRoute(builder: (context) => MyHomePage()));
-                               }
-                               
+                              String email = emailController.text;
+                              String senha = passwordController.text;
+                              Navigator.pushReplacementNamed(context, 'arquivos');
+                              //ApiService.login(email, senha, context);
                         },
 
                         style: ElevatedButton.styleFrom(

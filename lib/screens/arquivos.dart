@@ -240,11 +240,12 @@ class MyHomePageState extends State<MyHomePage> {
                     const SizedBox(height: 25,),
 
                     ElevatedButton(onPressed: (){
-                      try{
-                        uploadFiles(selectedFiles);
-                        }catch(e) {
+                      //try{
+                       // uploadFiles(selectedFiles);
+                        //}catch(e) {
                           enviarItensSelecionados();                
-                        }} ,
+                        //}
+                        } ,
 
                     child: Text('Enviar'),
                     style:ElevatedButton.styleFrom(

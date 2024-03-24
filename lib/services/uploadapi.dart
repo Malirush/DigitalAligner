@@ -1,15 +1,16 @@
-
+import 'dart:developer';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+
 
 Future<void> uploadFiles(List<File> files) async {
   
 
-  try {
+  
     var url = Uri.parse('http://digital-aligner.ddns.net:3000/api/v1/uploads');
 
   var headers = {
-    'Authorization': '',
+    'Authorization': 'Bearer TOKEN',
     'User-Agent': 'Apidog/1.0.0 (https://apidog.com)',
   };
 
@@ -26,7 +27,5 @@ Future<void> uploadFiles(List<File> files) async {
     } else {
       print('Erro: ${response.reasonPhrase}');
     }
-  } catch (e) {
-    print('Erro: $e');
-  }
+  
 }
